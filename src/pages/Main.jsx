@@ -5,32 +5,55 @@ import api from '../config'
 import {MainCharacters} from '../components/main/MainCharacters'
 import { Preloader } from "../components/UI/Preloader"
 import { MyPagination } from "../components/UI/Pagination"
+import { MySelect } from "../components/UI/Select"
+import { MySearch } from "../components/UI/Search"
 
 export function Main(){
 
     const {
-        characters,
         loading,
         setCharacters,
         setCount,
         count,
         currentPage,
-        changePage
+        changePage,
+        status,
+        changeStatus,
+        setSearch,
+        searchValue
     } = useContext(RAMContext)
 
     useEffect(function getCharacters(){
-        api.get(`character/?page=${currentPage}`)
+        api.get(`character/?page=${currentPage}&status=${status}&name=${searchValue}`)
         .then(data => {
             console.log(data.data)
             setCharacters(data.data.results)
             setCount(data.data.info.pages)
         })
-    }, [currentPage])
-    console.log(currentPage)
+    }, [currentPage, status, searchValue])
+    console.log(searchValue)
     return (
         <div className="main">
+            <div className="main__options">
+            <div className="select">
             {
-                loading ? <Preloader/> : <MainCharacters/>
+                <MySelect 
+                changeStatus={changeStatus}
+                />
+            }
+            </div>
+            <div className="search">
+                {
+                    <MySearch
+                    setSearch={setSearch}
+                    />
+                }
+            </div>
+            </div>
+
+
+            {
+                loading ? <div className="preloader"><Preloader/></div> : <MainCharacters/>
             }
             {
                 <MyPagination 

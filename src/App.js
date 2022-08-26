@@ -6,13 +6,13 @@ import {ContextProvider} from './store/context'
 
 function App() {
   return (
-    <>
+    <div className='wrapper'>
       <Header/>
         <ContextProvider>
           <Main/>
         </ContextProvider>
       <Footer/>
-    </>
+    </div>
   );
 }
 

@@ -14,7 +14,25 @@ export function reducer(state, {type, payload}){
         } case 'CHANGE_CURRENT_PAGE':{
             return{
                 ...state,
-                currentPage: payload
+                currentPage: payload,
+                loading: true
+            }
+        } case 'CHANGE_STATUS':{
+            return{
+                ...state,
+                status: payload,
+                currentPage: 1,
+                loading: true
+            }
+        } case 'SET_SEARCH':{
+            return{
+                ...state,
+                searchValue: payload,
+            }
+        } case 'SET_LOADING':{
+            return{
+                ...state,
+                loading: true
             }
         }
     }

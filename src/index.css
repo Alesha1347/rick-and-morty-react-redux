@@ -24,6 +24,30 @@ body {
   align-items: center;
   margin: 0 auto;
 }
+/* Select */
+.select .form-select {
+  width: 400px;
+}
+/* Preloader */
+.preloader{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: black;
+  opacity: 0.8;
+}
+.preloader .spinner-grow{
+  width: 500px;
+  height: 500px;
+  color: orange;
+}
+/* Search */
+.search .form-control{
+  width: 400px;
+}
+
+
 
 /* main */
 .main{
@@ -31,6 +55,11 @@ body {
   margin: 0 auto;
 }
 
+.main__options{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
 
 /* main__characters */
 .main__characters{

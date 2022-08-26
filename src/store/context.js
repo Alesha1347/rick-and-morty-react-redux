@@ -7,7 +7,9 @@ const initialState = {
     characters: [],
     loading: true,
     currentPage: 1,
-    count: null
+    count: null,
+    status: '',
+    searchValue: ''
 }
 
 export const ContextProvider = ({children}) => {
@@ -31,6 +33,26 @@ export const ContextProvider = ({children}) => {
         dispatch({
             type: 'CHANGE_CURRENT_PAGE',
             payload: page
+        })
+    }
+
+    state.changeStatus = status => {
+        dispatch({
+            type: 'CHANGE_STATUS',
+            payload: status
+        })
+    }
+
+    state.setSearch = value => {
+        dispatch({
+            type: 'SET_SEARCH',
+            payload: value
+        })
+    }
+
+    state.setLoading = () => {
+        dispatch({
+            type: 'SET_LOADING'
         })
     }
 
