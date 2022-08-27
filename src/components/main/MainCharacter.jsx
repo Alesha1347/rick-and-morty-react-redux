@@ -1,12 +1,13 @@
 import {Link} from 'react-router-dom'
 
+import { AddButton } from '../UI/AddButton'
+
 export function MainCharacter(props){
     const {id, name, species, image, status} = props
 
     return (
         <div className="main__character">
-            <div className="character__heart">&#10084;</div>
-            {/* <span >&#128148;</span> */}
+            <AddButton {...props}/>
             <Link to={`/character/${id}`}>
             <img className="character__image" src={image}/>
             </Link>

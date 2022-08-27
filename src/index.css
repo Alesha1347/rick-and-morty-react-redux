@@ -197,3 +197,30 @@ body {
 .btn__back:hover{
   box-shadow: 2px 2px 5px 5px orange;
 }
+
+
+/* favourites */
+.favourites{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 1100px;
+  align-items: center;
+  margin: 0 auto;
+  position: relative;
+}
+
+.btn__back-fav{
+  position: absolute;
+  top: 0;
+  left: 0;
+  outline: none;
+  font-weight: bold;
+  padding: 10px;
+  border-radius: 50%;
+  background-color: yellow;
+  border: 2px solid orangered;  
+}
+.btn__back-fav:hover{
+  box-shadow: 2px 2px 5px 5px orange;
+}

@@ -10,47 +10,44 @@ const initialState = {
     count: null,
     status: '',
     searchValue: '',
-    character: []
+    character: [],
+    favourites: []
 }
 
 export const ContextProvider = ({children}) => {
     const [state, dispatch] = useReducer(reducer, initialState)
 
+    // main
     state.setCharacters = (data) => {
         dispatch({
             type: 'SET_CHARACTERS',
             payload: data
         })
     }
-
     state.setCount = data => {
         dispatch({
             type: 'SET_COUNT',
             payload: data
         })
     }
-
     state.changePage = page => {
         dispatch({
             type: 'CHANGE_CURRENT_PAGE',
             payload: page
         })
     }
-
     state.changeStatus = status => {
         dispatch({
             type: 'CHANGE_STATUS',
             payload: status
         })
     }
-
     state.setSearch = value => {
         dispatch({
             type: 'SET_SEARCH',
             payload: value
         })
     }
-
     state.setLoading = () => {
         dispatch({
             type: 'SET_LOADING'
@@ -65,11 +62,24 @@ export const ContextProvider = ({children}) => {
         })
     }
 
-    
     // clear page details
     state.clearDetails = () => {
         dispatch({
             type: 'CLEAR_DETAILS'
+        })
+    }
+
+    // favourites
+    state.addFavourites = (character) => {
+        dispatch({
+            type: 'ADD_FAVOURITES',
+            payload: character
+        })
+    }
+    state.removeFavourites = (id) => {
+        dispatch({
+            type: 'REMOVE_FAVOURITES',
+            payload: id
         })
     }
 

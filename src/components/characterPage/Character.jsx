@@ -1,8 +1,10 @@
 import {useNavigate} from 'react-router-dom'
 
+import {AddButton} from '../UI/AddButton'
+
 export function Character(props){
 
-    const {created, gender, image, species, status, name} = props.character
+    const {created, gender, image, species, status, name, id} = props
 
     const navigate = useNavigate()
 
@@ -10,8 +12,7 @@ export function Character(props){
         <div className="main">
             <button onClick={() => navigate(-1)} className="btn__back">BACK</button>
         <div className="character__page">
-            <div className="character__heart">&#10084;</div>
-            {/* <span >&#128148;</span> */}
+        <AddButton {...props}/>
             <div>
             <img className="character__page-image" src={image}/>
             </div>

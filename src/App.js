@@ -12,8 +12,8 @@ function App() {
   return (
     <Router>
     <div className='wrapper'>
-      <Header/>
         <ContextProvider>
+        <Header/>
           <Routes>
           <Route path='/' element={<Main/>}/>
           <Route path='/favourites' element={<Favourites/>}/>

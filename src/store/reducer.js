@@ -46,6 +46,35 @@ export function reducer(state, {type, payload}){
                 ...state,
                 character: []
             }
+        }   case 'ADD_FAVOURITES':{
+            const itemIndex = state.favourites.findIndex(orderItem => orderItem.id === payload.id)
+
+            let newOrder = null
+            if(itemIndex < 0){
+                const newItem = {
+                    ...payload
+                }
+            newOrder = [...state.favourites, newItem]
+            } else {
+                newOrder = state.favourites.map((orderItem, index) =>{
+                    if(index === itemIndex){
+                        return {
+                            ...orderItem
+                        }
+                    } else {
+                        return orderItem
+                    }
+                })
+            }
+            return {
+                ...state,
+                favourites: newOrder
+            }
+        } case 'REMOVE_FAVOURITES':{
+            return{
+                ...state,
+                favourites: state.favourites.filter(item => item.id !== payload)
+            }
         }
     }
 }

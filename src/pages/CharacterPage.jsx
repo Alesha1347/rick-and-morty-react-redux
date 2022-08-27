@@ -30,7 +30,7 @@ export function CharacterPage(){
     return(
         <div className="character__page">
             {
-                loading ? <div className="preloader__page"><Preloader/></div> : <Character character={character}/>
+                loading ? <div className="preloader__page"><Preloader/></div> : <Character {...character}/>
             }
         </div>
     )
