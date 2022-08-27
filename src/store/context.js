@@ -9,7 +9,8 @@ const initialState = {
     currentPage: 1,
     count: null,
     status: '',
-    searchValue: ''
+    searchValue: '',
+    character: []
 }
 
 export const ContextProvider = ({children}) => {
@@ -53,6 +54,22 @@ export const ContextProvider = ({children}) => {
     state.setLoading = () => {
         dispatch({
             type: 'SET_LOADING'
+        })
+    }
+
+    // CharacterPage
+    state.setCharacter = (data) => {
+        dispatch({
+            type: 'SET_CHARACTER',
+            payload: data
+        })
+    }
+
+    
+    // clear page details
+    state.clearDetails = () => {
+        dispatch({
+            type: 'CLEAR_DETAILS'
         })
     }
 

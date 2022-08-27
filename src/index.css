@@ -13,6 +13,37 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Header */
+.header{
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 200px;
+  align-items: center;
+}
+
+.header__logo{
+  cursor: pointer;
+  font-size: 25px;
+  font-weight: bold;
+  text-decoration: none;
+  color: gray;
+}
+.header__logo:hover{
+  color: black;
+}
+
+.header__fav{
+  cursor: pointer;
+  font-size: 50px;
+  font-weight: bold;
+  color: orangered;
+  text-decoration: none;
+}
+.header__fav:hover{
+  color: red;
+}
+
+
 /* UI */
 /* Paginate */
 .paginate .pagination{
@@ -34,14 +65,29 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-color: black;
-  opacity: 0.8;
 }
 .preloader .spinner-grow{
   width: 500px;
   height: 500px;
   color: orange;
 }
+
+.preloader__page{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: black;
+  opacity: 0.8;
+  width: 100%;
+}
+.preloader__page .spinner-grow{
+  width: 500px;
+  height: 500px;
+  color: orange;
+}
+
+
 /* Search */
 .search .form-control{
   width: 400px;
@@ -73,8 +119,8 @@ body {
 /* main__character */
 .main__character{
   margin: 20px;
-  cursor: pointer;
   border: 2px solid black;
+  position: relative;
 }
 .main__character:hover{
   box-shadow: 5px 5px 10px 10px;
@@ -84,6 +130,12 @@ body {
   display: flex;
   flex-direction: column;
   background-color: rgb(238, 194, 113);
+  cursor: pointer;
+  text-decoration: none;
+  color: black;
+}
+.character__info:hover{
+  color: black;
 }
 
 .character__image{
@@ -96,5 +148,52 @@ body {
   font-weight: bold;
 }
 
-.character__species{
+.character__heart{
+  position: absolute;
+  font-size: 25px;
+  cursor: pointer;
+  top: 0px;
+  right: 5px;
+}
+.character__heart:hover{
+  transform: scale(1.2);
+}
+
+
+
+/* Character */
+.character__page{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: relative;
+}
+
+.character__page-image{
+  width: 400px;
+  height: 400px;
+  border-radius: 20px;
+  border: 1px solid black;
+}
+
+.character__page-info{
+  border: 1px solid;
+  padding: 10px;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.btn__back{
+  position: absolute;
+  top: 0;
+  left: 450px;
+  outline: none;
+  font-weight: bold;
+  padding: 10px;
+  border-radius: 50%;
+  background-color: yellow;
+  border: 2px solid orangered;  
+}
+.btn__back:hover{
+  box-shadow: 2px 2px 5px 5px orange;
 }

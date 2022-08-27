@@ -26,12 +26,12 @@ export function Main(){
     useEffect(function getCharacters(){
         api.get(`character/?page=${currentPage}&status=${status}&name=${searchValue}`)
         .then(data => {
-            console.log(data.data)
+            // console.log(data.data)
             setCharacters(data.data.results)
             setCount(data.data.info.pages)
         })
     }, [currentPage, status, searchValue])
-    console.log(searchValue)
+    
     return (
         <div className="main">
             <div className="main__options">

@@ -28,11 +28,23 @@ export function reducer(state, {type, payload}){
             return{
                 ...state,
                 searchValue: payload,
+                currentPage: 1
             }
         } case 'SET_LOADING':{
             return{
                 ...state,
                 loading: true
+            }
+        } case 'SET_CHARACTER':{
+            return{
+                ...state,
+                loading: false,
+                character: payload
+            }
+        } case 'CLEAR_DETAILS':{
+            return {
+                ...state,
+                character: []
             }
         }
     }
