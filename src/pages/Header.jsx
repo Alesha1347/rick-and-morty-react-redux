@@ -1,9 +1,10 @@
 import {Link} from 'react-router-dom'
 import { useContext } from 'react'
 import {RAMContext} from '../store/context'
+import { Alert } from '../components/UI/Alert'
 
 export function Header(){
-    const {favourites} = useContext(RAMContext)
+    const {favourites, alertName} = useContext(RAMContext)
 
     return (
         <div className="header">
@@ -14,6 +15,9 @@ export function Header(){
                 ) : (
                     <Link to={'/favourites'} className="header__fav">&#9829;</Link>
                 )
+            }
+            {
+                alertName && <Alert/>
             }
         </div>
     )

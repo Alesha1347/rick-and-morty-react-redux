@@ -11,7 +11,8 @@ const initialState = {
     status: '',
     searchValue: '',
     character: [],
-    favourites: []
+    favourites: [],
+    alertName: ''
 }
 
 export const ContextProvider = ({children}) => {
@@ -81,6 +82,12 @@ export const ContextProvider = ({children}) => {
             type: 'REMOVE_FAVOURITES',
             payload: id
         })
+    }
+
+
+    // alert
+    state.closeAlert = () =>{
+        dispatch({type: 'CLOSE_ALERT'})
     }
 
     return <RAMContext.Provider value={state}>

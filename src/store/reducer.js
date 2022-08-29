@@ -68,12 +68,18 @@ export function reducer(state, {type, payload}){
             }
             return {
                 ...state,
-                favourites: newOrder
+                favourites: newOrder,
+                alertName: payload.name
             }
         } case 'REMOVE_FAVOURITES':{
             return{
                 ...state,
                 favourites: state.favourites.filter(item => item.id !== payload)
+            }
+        } case 'CLOSE_ALERT':{
+            return{
+                ...state,
+                alertName: ''
             }
         }
     }

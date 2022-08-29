@@ -9,7 +9,7 @@ export function Character(props){
     const navigate = useNavigate()
 
     return (
-        <div className="main">
+        <div className="character">
             <button onClick={() => navigate(-1)} className="btn__back">BACK</button>
         <div className="character__page">
         <AddButton {...props}/>

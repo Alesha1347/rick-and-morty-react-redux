@@ -7,6 +7,7 @@ import { Preloader } from "../components/UI/Preloader"
 import { MyPagination } from "../components/UI/Pagination"
 import { MySelect } from "../components/UI/Select"
 import { MySearch } from "../components/UI/Search"
+import { Alert } from "../components/UI/Alert"
 
 export function Main(){
 
