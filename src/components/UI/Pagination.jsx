@@ -1,22 +1,25 @@
-import Pagination from 'react-bootstrap/Pagination';
+import ReactPaginate from 'react-paginate';
 
-export function MyPagination({count, currentPage, changePage}){
-    
-let items = [];
-for (let number = 1; number <= count; number++) {
-  items.push(
-    <Pagination.Item 
-    onClick={() => changePage(number)} 
-    key={number} 
-    active={number === currentPage}
-    >
-      {number}
-    </Pagination.Item>,
+export function MyPagination( {count, currentPage, changePage} ) {
+
+
+  return (
+    <>
+      <ReactPaginate
+        className='paginate'
+        breakLabel="..."
+        nextLabel="&#10095;"
+        onPageChange={changePage}
+        pageRangeDisplayed={5}
+        pageCount={count}
+        previousLabel="&#10094;"
+        renderOnZeroPageCount={null}
+        activeClassName="active__page"
+        pageClassName="page"
+        previousClassName="prev__page"
+        nextClassName="next__page"
+        forcePage={currentPage - 1}
+      />
+    </>
   );
-}
-    return (
-        <div className='paginate'>
-    <Pagination>{items}</Pagination>
-        </div>
-    )
 }

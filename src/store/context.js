@@ -90,6 +90,7 @@ export const ContextProvider = ({children}) => {
         dispatch({type: 'CLOSE_ALERT'})
     }
 
+
     return <RAMContext.Provider value={state}>
         {children}
     </RAMContext.Provider>

@@ -1,9 +1,6 @@
 import Form from 'react-bootstrap/Form';
-import {useNavigate} from 'react-router-dom'
 
 export function MySelect({changeStatus}){
-
-  const navigate = useNavigate()
 
     const statusOptions = [
         {name: 'Живы', value:'Alive'},
@@ -18,7 +15,7 @@ export function MySelect({changeStatus}){
           if(e.target.value === 'Все'){
             return changeStatus('')
           } else {
-            navigate(`?status=${e.target.value}`)
+            // navigate(`?status=${e.target.value}`)
             changeStatus(e.target.value)
           }
         }}
@@ -37,5 +34,3 @@ export function MySelect({changeStatus}){
         </Form.Select>
       );
 }
-
-// e.target.value === 'Все' ? changeStatus('') : changeStatus(e.target.value)}

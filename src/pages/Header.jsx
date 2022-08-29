@@ -4,11 +4,19 @@ import {RAMContext} from '../store/context'
 import { Alert } from '../components/UI/Alert'
 
 export function Header(){
-    const {favourites, alertName} = useContext(RAMContext)
+    const {
+        favourites, 
+        alertName, 
+        openMainPage
+    } = useContext(RAMContext)
 
     return (
         <div className="header">
-            <Link to={'/'} className="header__logo">Rick and Morty</Link>
+            <Link 
+            to={'/'} 
+            className="header__logo"
+           
+            >Rick and Morty</Link>
             {
                 !favourites.length ? (
                     <Link to={'/favourites'} className="header__fav">&#9825;</Link>

@@ -12,7 +12,9 @@ export function MainCharacter(props){
             <img className="character__image" src={image}/>
             </Link>
             <Link to={'/character'} className="character__info">
-            <div className="character__name">{name}</div>
+            <div 
+            className="character__name"
+            >{name}</div>
             <div className="character__species">{species}</div>
             <div className="character__status">{status}</div>
             </Link>

@@ -14,7 +14,7 @@ export function reducer(state, {type, payload}){
         } case 'CHANGE_CURRENT_PAGE':{
             return{
                 ...state,
-                currentPage: payload,
+                currentPage: payload.selected + 1,
                 loading: true
             }
         } case 'CHANGE_STATUS':{
@@ -81,6 +81,6 @@ export function reducer(state, {type, payload}){
                 ...state,
                 alertName: ''
             }
-        }
+        } 
     }
 }
