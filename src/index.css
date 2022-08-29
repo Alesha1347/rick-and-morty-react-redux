@@ -188,8 +188,7 @@ body {
   position: relative;
   width: 204px;
 }
-.main__characters .main__character:hover{
-  /* border: 2px solid orange; */
+.main__character:hover{
   box-shadow: 5px 5px 10px 10px;
 }
 
@@ -202,6 +201,7 @@ body {
   color: black;
 }
 .character__info:hover{
+  box-shadow: 5px 5px 10px 10px;
   color: black;
 }
 
