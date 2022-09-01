@@ -1,6 +1,4 @@
-import { useEffect, useContext } from "react"
-import {RAMContext} from '../store/context'
-import api from '../config'
+import { useEffect } from "react"
 import {useNavigate} from 'react-router-dom'
 
 import {MainCharacters} from '../components/main/MainCharacters'
@@ -9,46 +7,65 @@ import { MyPagination } from "../components/UI/Pagination"
 import { MySelect } from "../components/UI/Select"
 import { MySearch } from "../components/UI/Search"
 
+// redux
+import {useSelector, useDispatch} from 'react-redux'
+
+// actions
+import {
+    loadCharacters,
+    changePage,
+    changeStatus,
+    setSearch
+} from '../store/characters/characters-actions'
+
+// selectors
+import { allSelectorsCharacters } from "../store/characters/characters-selectors"
+
+
 export function Main(){
 
     const navigate = useNavigate()
 
     const {
-        loading,
-        setCharacters,
-        setCount,
         count,
         currentPage,
-        changePage,
+        loading,
         status,
-        changeStatus,
-        setSearch,
         searchValue
-    } = useContext(RAMContext)
+    } = useSelector(allSelectorsCharacters)
+    const dispatch = useDispatch()
 
 
-    useEffect(function getCharacters(){
-        const queryParams = {
-            page: currentPage
-        }   
-        if(currentPage !== 1) {
+    const setPage = (page) => {
+        dispatch(changePage(page))
+    }
+    const setStatus = (status) => {
+        dispatch(changeStatus(status))
+    }
+    const setValue = (value) => {
+        dispatch(setSearch(value))
+    }
+
+    const queryParams = {
+        page: currentPage,
+        status: status,
+        name: searchValue
+    } 
+
+    useEffect(() => {
+        dispatch(loadCharacters(queryParams))
+        if(currentPage) {
             navigate(`?page=${currentPage}`)
         } if(status) {
             navigate(`?page=${currentPage}&status=${status}`)
-            queryParams.status = status
+                queryParams.status = status
         } if(searchValue){
             navigate(`?page=${currentPage}&name=${searchValue}`)
-            queryParams.name = searchValue
+                queryParams.name = searchValue
         } if(status && searchValue){
             navigate(`?page=${currentPage}&name=${searchValue}&status=${status}`)
         }
-        api.get(`character/`, queryParams)
-        .then(data => {
-            setCharacters(data.data.results)
-            setCount(data.data.info.pages)
-        })
     }, [currentPage, status, searchValue])
-
 
     return (
         <div className="main">
@@ -56,14 +73,14 @@ export function Main(){
             <div className="select">
             {
                 <MySelect 
-                changeStatus={changeStatus}
+                changeStatus={setStatus}
                 />
             }
             </div>
             <div className="search">
                 {
                     <MySearch
-                    setSearch={setSearch}
+                    setSearch={setValue}
                     />
                 }
             </div>
@@ -77,7 +94,7 @@ export function Main(){
                 <MyPagination 
                 currentPage={currentPage} 
                 count={count}
-                changePage={changePage}
+                changePage={setPage}
                 />
             }
         </div>

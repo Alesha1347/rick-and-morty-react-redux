@@ -1,14 +1,11 @@
 import {Link} from 'react-router-dom'
-import { useContext } from 'react'
-import {RAMContext} from '../store/context'
 import { Alert } from '../components/UI/Alert'
 
+import { useSelector } from 'react-redux'
+import {selectFavourites} from '../store/favourites/favourites-selectors'
+
 export function Header(){
-    const {
-        favourites, 
-        alertName, 
-        openMainPage
-    } = useContext(RAMContext)
+    const {favourites, alertName} = useSelector(selectFavourites)
 
     return (
         <div className="header">

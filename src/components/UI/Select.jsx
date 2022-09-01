@@ -15,7 +15,6 @@ export function MySelect({changeStatus}){
           if(e.target.value === 'Все'){
             return changeStatus('')
           } else {
-            // navigate(`?status=${e.target.value}`)
             changeStatus(e.target.value)
           }
         }}

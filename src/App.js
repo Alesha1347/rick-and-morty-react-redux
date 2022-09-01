@@ -6,20 +6,17 @@ import {Footer} from './pages/Footer'
 import { Favourites } from './pages/Favourites'
 import { CharacterPage } from './pages/CharacterPage'
 
-import {ContextProvider} from './store/context'
 
 function App() {
   return (
     <Router>
     <div className='wrapper'>
-        <ContextProvider>
         <Header/>
           <Routes>
           <Route path='/' element={<Main/>}/>
           <Route path='/favourites' element={<Favourites/>}/>
           <Route path='/character/:id' element={<CharacterPage/>}/>
           </Routes>
-        </ContextProvider>
       <Footer/>
     </div>
     </Router>

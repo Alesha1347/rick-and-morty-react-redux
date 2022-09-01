@@ -1,12 +1,13 @@
 import Form from 'react-bootstrap/Form';
 
-import { useCallback, useContext } from 'react';
-import { RAMContext } from '../../store/context';
+import { useCallback } from 'react';
+
+import { useDispatch } from 'react-redux';
+import {setLoading} from '../../store/characters/characters-actions'
 
 export function MySearch({setSearch}){
-
-    const {setLoading} = useContext(RAMContext)
-
+    const dispatch = useDispatch()
+    const changeLoadingStatus = () => dispatch(setLoading())
 
     const debounce = (func) => {
         let timer
@@ -30,7 +31,7 @@ export function MySearch({setSearch}){
         id="inputSearch"
         placeholder='search...'
         onChange={(e) => {
-            setLoading()
+            changeLoadingStatus()
             optimisedVersion(e.target.value)
         }}
       />

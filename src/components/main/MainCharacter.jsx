@@ -11,7 +11,7 @@ export function MainCharacter(props){
             <Link to={`/character/${id}`}>
             <img className="character__image" src={image}/>
             </Link>
-            <Link to={'/character'} className="character__info">
+            <Link to={`/character/${id}`} className="character__info">
             <div 
             className="character__name"
             >{name}</div>

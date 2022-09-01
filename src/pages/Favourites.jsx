@@ -1,14 +1,14 @@
-import { useContext } from "react"
-import {RAMContext} from '../store/context'
-
 import { Favourite } from "../components/favourites/Favourite"
 import {useNavigate} from 'react-router-dom'
 
+import { useSelector } from "react-redux"
+// selectors
+import {selectFavourites} from '../store/favourites/favourites-selectors'
 
 export function Favourites(){
-    const {favourites} = useContext(RAMContext)
     const navigate = useNavigate()
 
+    const {favourites} = useSelector(selectFavourites)
 
     return(
         <div className="favourites">
@@ -16,10 +16,13 @@ export function Favourites(){
             {
                 favourites.map(fav => 
                 <Favourite 
-                fav={fav}
+                {...fav}
                 key={fav.id}
                 />)
             }
         </div>
     )
 }
+
+
+// END
